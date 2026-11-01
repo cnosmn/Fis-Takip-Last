@@ -10,7 +10,7 @@ python -m venv .venv
 
 3-python -m scripts.test_receipt eval/test_set/fis.jpg
 
-
+python -m scripts.test_db eval/test_set/fıs1.jpg
 
 **Ödev** : bir fotoğrafı yan çevirip kaydet. Ön işleme olmadan ve olunca sonuç farkını karşılaştır.
 
