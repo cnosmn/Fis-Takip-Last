@@ -20,4 +20,20 @@ class Receipt(Base):
     toplam: Mapped[Decimal | None] = mapped_column(Numeric(10, 2))
     kategori: Mapped[str | None]
     kalemler: Mapped[list["Item"]] = relationship(cascade="all, delete-orphan")
-    kdv: Mapped[list["Vat"]] = relationship(back_populates="receipt", cascade="all, delete-orphan")
+    kdv: Mapped[list["Vat"]] = relationship(cascade="all, delete-orphan")
+
+class Item(Base):
+    __tablename__ = "items"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    receipt_id: Mapped[int] = mapped_column(ForeignKey("receipts.id"))
+    ad: Mapped[str]
+    adet: Mapped[Decimal | None] = mapped_column(Numeric(10,3))
+    tutar: Mapped[Decimal] = mapped_column(Numeric(12,2))
+
+class Vat(Base):
+    __tablename__="vats"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    receipt_id: Mapped[int] = mapped_column(ForeignKey("receipts.id"))
+    oran: Mapped[Decimal] = mapped_column(Numeric(5,2))
+    tutar: Mapped[Decimal] = mapped_column(Numeric(12,2))
+

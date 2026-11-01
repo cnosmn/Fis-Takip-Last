@@ -11,8 +11,8 @@ from app.schemas import ReceiptData
 from pathlib import Path
 from app.image_utils import prepare_image_b64
 client = OpenAI(
-    base_url=config.vlm_base_url,
-    api_key=config.vlm_api_key
+    base_url=config.VLM_BASE_URL,
+    api_key=config.VLM_API_KEY
 )
 
 PROMPT = """Sen bir fiş okuma sistemisin. Görseldeki fişi oku ve SADECE JSON döndür.
@@ -38,7 +38,7 @@ def extract_json(text:str) -> dict:
 
 def _call_vlm(b64: str) ->str:
     resp = client.chat.completions.create(
-        model = config.vlm_model,
+        model = config.VLM_MODEL,
         temperature=0,
         messages=[{
                     "role": "user",
