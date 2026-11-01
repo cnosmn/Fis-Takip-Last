@@ -1,0 +1,7 @@
+.venv/
+.env
+__pycache__/
+uploads/
+*.db
+eval/test_set/*.jpg
+eval/test_set/*.png
