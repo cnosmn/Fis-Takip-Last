@@ -12,6 +12,9 @@ python -m venv .venv
 
 python -m scripts.test_db eval/test_set/fıs1.jpg
 
+# api çalıştırma komutu : 
+- uvicorn app.main:app --reload
+
 **Ödev** : bir fotoğrafı yan çevirip kaydet. Ön işleme olmadan ve olunca sonuç farkını karşılaştır.
 
 modül 2 sonu: proje durumu
